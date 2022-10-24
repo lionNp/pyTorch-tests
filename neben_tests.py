@@ -1,8 +1,15 @@
 import torch
 import math
 
-x = torch.linspace(-math.pi, math.pi, 2000)
+sample_size = 10000
+
+x = torch.linspace(-math.pi, math.pi, sample_size)
+x = torch.linspace(-2, 2, sample_size)
+#x = torch.tensor([0,1,2,3])*1.0
 y = torch.sin(x)
+
+y_fun = lambda x:x + x**2 + x**3
+y = y_fun(x)
 
 power = torch.tensor([1, 2, 3])
 
@@ -25,7 +32,7 @@ loss_fn = torch.nn.MSELoss(reduction='sum')
 #lernrate
 learning_rate = 1e-6
 
-for t in range(2000):
+for t in range(sample_size):
 
     # abschätzung für y errechnen, davon loss ableiten
     y_pred = model(xx)
