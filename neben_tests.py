@@ -1,15 +1,17 @@
 import torch
 import math
+import daten_sample_und_funktion
 
-sample_size = 10000
+sample_size = daten_sample_und_funktion.sample_size
 
-x = torch.linspace(-math.pi, math.pi, sample_size)
-x = torch.linspace(-2, 2, sample_size)
+#x = torch.linspace(-math.pi, math.pi, sample_size)
+#x = torch.linspace(-2, 2, sample_size)
 #x = torch.tensor([0,1,2,3])*1.0
-y = torch.sin(x)
+#y = torch.sin(x)
 
-y_fun = lambda x:x + x**2 + x**3
-y = y_fun(x)
+x = torch.tensor(daten_sample_und_funktion.input)*1.0
+y = torch.tensor(daten_sample_und_funktion.output)*1.0
+
 
 power = torch.tensor([1, 2, 3])
 
